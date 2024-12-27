@@ -23,7 +23,7 @@
 
     <groupId>lol.hyper</groupId>
     <artifactId>timebar</artifactId>
-    <version>1.4.6</version>
+    <version>1.4.6-eidacz</version>
     <packaging>jar</packaging>
 
     <name>TimeBar</name>
@@ -124,9 +124,9 @@
         <dependency>
             <groupId>me.casperge.realisticseasons</groupId>
             <artifactId>RealisticSeasons</artifactId>
-            <version>11.5.2</version>
+            <version>11.5.5</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/RealisticSeasons-11.5.2.jar</systemPath>
+            <systemPath>${project.basedir}/RealisticSeasons-11.5.5.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>net.advancedplugins</groupId>

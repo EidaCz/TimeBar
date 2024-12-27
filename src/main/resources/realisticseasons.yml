@@ -1,5 +1,5 @@
 # Use 24hr format for times.
-use-24h-format: false
+use-24h-format: true
 
 # Set the text of the TimeBar.
 # {TIME} - The current world time, 7:20 am, etc.
@@ -10,12 +10,14 @@ use-24h-format: false
 # {DAY} - The day of week.
 # {MONTH} - The month.
 # {DAYPERCENT} - Percentage of day completion.
-timebar-title: "{TIME} - {TIME-WORD} ({DATE}) {DAY} {DAYPERCENT} - {SEASON} - {MONTH}"
+# {WORLDYEAR} - Current server year (simple integer).
+# {WORLDYEAR-ROMAN} - Current server year as roman numeral.
+timebar-title: "{SEASON} | {DAY} {DATE} {WORLDYEAR-ROMAN}, {TIME} | {TIME-WORD}"
 
 # Change the default formatting for dates.
 # See: https://www.digitalocean.com/community/tutorials/java-simpledateformat-java-date-format
 # Example: "dd/MM/yyyy"
-date-format: "M/dd/yyyy"
+date-format: "d. MMMM"
 
 # Want to change the wording of the time of days?
 times:

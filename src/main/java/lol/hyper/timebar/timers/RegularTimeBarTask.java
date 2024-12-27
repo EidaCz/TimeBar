@@ -20,6 +20,7 @@ package lol.hyper.timebar.timers;
 import lol.hyper.timebar.papi.PlaceholderUtil;
 import lol.hyper.timebar.tracker.WorldTimeTracker;
 import lol.hyper.timebar.utils.NumberFormat;
+import lol.hyper.timebar.utils.RomanNumeral;
 import net.kyori.adventure.bossbar.BossBar;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -106,6 +107,15 @@ public class RegularTimeBarTask extends BukkitRunnable {
         if (title.contains("{DAYPERCENT}")) {
             title = title.replace("{DAYPERCENT}", String.format("%.2f", progress) + "%");
         }
+
+        if (title.contains("{WORLDYEAR}")) {
+            title = title.replace("{WORLDYEAR}", NumberFormat.formatInt(dayCount / 365));
+        }
+
+        if (title.contains("{WORLDYEAR-ROMAN}")) {
+            title = title.replace("{WORLDYEAR-ROMAN}", RomanNumeral.toRoman(dayCount / 365));
+        }
+
         return title;
     }
 

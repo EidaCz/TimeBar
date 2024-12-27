@@ -4,6 +4,8 @@
 # {SEASON} - The current season.
 # {TEMP} - The temperature of the world.
 # {DAYPERCENT} - Percentage of day completion.
+# {WORLDYEAR} - Current server year (simple integer).
+# {WORLDYEAR-ROMAN} - Current server year as roman numeral.
 timebar-title: "{TIME} (Day {DAYCOUNT}) {DAYPERCENT} {SEASON} - {TEMP}"
 
 # Set the display name for seasons.

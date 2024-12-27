@@ -26,7 +26,6 @@ import lol.hyper.timebar.papi.TimeBarExpansion;
 import lol.hyper.timebar.tracker.WorldTimeTracker;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
@@ -94,7 +93,8 @@ public final class TimeBar extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(playerJoinLeave, this);
         Bukkit.getServer().getPluginManager().registerEvents(worldChange, this);
 
-        new Metrics(this, 10674);
+        // plugin modified, disabling original Metrics
+        //new Metrics(this, 10674);
 
         Bukkit.getScheduler().runTaskAsynchronously(this, this::checkForUpdates);
 

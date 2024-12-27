@@ -21,6 +21,8 @@ titlebar-color: "blue"
 # {TIME} - The time to display. Dawn, afternoon, etc.
 # {DAYCOUNT} - How many total days in game have passed.
 # {DAYPERCENT} - Percentage of day completion.
+# {WORLDYEAR} - Current server year (simple integer).
+# {WORLDYEAR-ROMAN} - Current server year as roman numeral.
 timebar-title: "{TIME} (Day {DAYCOUNT}) {DAYPERCENT}"
 
 # How often should the title and progress update?

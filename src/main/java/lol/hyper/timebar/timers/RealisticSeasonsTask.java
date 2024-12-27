@@ -17,9 +17,10 @@
 
 package lol.hyper.timebar.timers;
 
-import lol.hyper.timebar.tracker.WorldTimeTracker;
 import lol.hyper.timebar.papi.PlaceholderUtil;
+import lol.hyper.timebar.tracker.WorldTimeTracker;
 import lol.hyper.timebar.utils.NumberFormat;
+import lol.hyper.timebar.utils.RomanNumeral;
 import me.casperge.realisticseasons.api.SeasonsAPI;
 import me.casperge.realisticseasons.calendar.Date;
 import me.casperge.realisticseasons.season.Season;
@@ -306,6 +307,14 @@ public class RealisticSeasonsTask extends BukkitRunnable {
 
         if (title.contains("{DAYCOUNT}")) {
             title = title.replace("{DAYCOUNT}", NumberFormat.formatInt((int) (world.getFullTime() / 24000)));
+        }
+
+        if (title.contains("{WORLDYEAR}")) {
+            title = title.replace("{WORLDYEAR}", NumberFormat.formatInt((int) (world.getFullTime() / 24000 / 365)));
+        }
+
+        if (title.contains("{WORLDYEAR-ROMAN}")) {
+            title = title.replace("{WORLDYEAR-ROMAN}", RomanNumeral.toRoman((int) (world.getFullTime() / 24000 / 365)));
         }
 
         if (title.contains("{SEASON}")) {
