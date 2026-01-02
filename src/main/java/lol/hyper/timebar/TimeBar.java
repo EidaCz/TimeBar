@@ -96,7 +96,7 @@ public final class TimeBar extends JavaPlugin {
         // plugin modified, disabling original Metrics
         //new Metrics(this, 10674);
 
-        Bukkit.getScheduler().runTaskAsynchronously(this, this::checkForUpdates);
+        // Bukkit.getScheduler().runTaskAsynchronously(this, this::checkForUpdates);
 
         for (WorldTimeTracker worldTimeTracker : worldTimeTrackers) {
             worldTimeTracker.startTimer();
@@ -190,7 +190,7 @@ public final class TimeBar extends JavaPlugin {
     public void checkForUpdates() {
         GitHubReleaseAPI api;
         try {
-            api = new GitHubReleaseAPI("TimeBar", "hyperdefined");
+            api = new GitHubReleaseAPI("TimeBar", "eidacz");
         } catch (IOException e) {
             logger.warning("Unable to check updates!");
             e.printStackTrace();
