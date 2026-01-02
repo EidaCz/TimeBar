@@ -23,7 +23,7 @@
 
     <groupId>lol.hyper</groupId>
     <artifactId>timebar</artifactId>
-    <version>1.4.6-eidacz</version>
+    <version>1.4.8-eidacz</version>
     <packaging>jar</packaging>
 
     <name>TimeBar</name>
@@ -37,7 +37,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>auto-clean</id>
@@ -51,7 +51,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -60,7 +60,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.1</version>
                 <configuration>
                     <relocations>
                         <relocation>
@@ -106,7 +106,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <version>1.21.10-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -122,11 +122,11 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>me.casperge.realisticseasons</groupId>
+            <groupId>me.casperge.realisticseason</groupId>
             <artifactId>RealisticSeasons</artifactId>
-            <version>11.5.5</version>
+            <version>11.10.1</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/RealisticSeasons-11.5.5.jar</systemPath>
+            <systemPath>${project.basedir}/RealisticSeasons-11.10.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>net.advancedplugins</groupId>
@@ -138,7 +138,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.6</version>
+            <version>2.11.7</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
