@@ -17,8 +17,6 @@
 
 package lol.hyper.timebar;
 
-import lol.hyper.githubreleaseapi.GitHubRelease;
-import lol.hyper.githubreleaseapi.GitHubReleaseAPI;
 import lol.hyper.timebar.commands.CommandTimeBar;
 import lol.hyper.timebar.events.PlayerJoinLeave;
 import lol.hyper.timebar.events.WorldChange;
@@ -35,7 +33,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -92,11 +89,6 @@ public final class TimeBar extends JavaPlugin {
 
         Bukkit.getServer().getPluginManager().registerEvents(playerJoinLeave, this);
         Bukkit.getServer().getPluginManager().registerEvents(worldChange, this);
-
-        // plugin modified, disabling original Metrics
-        //new Metrics(this, 10674);
-
-        // Bukkit.getScheduler().runTaskAsynchronously(this, this::checkForUpdates);
 
         for (WorldTimeTracker worldTimeTracker : worldTimeTrackers) {
             worldTimeTracker.startTimer();
@@ -184,29 +176,6 @@ public final class TimeBar extends JavaPlugin {
             if (advancedSeasonsConfig.getInt("config-version") != ADVANCED_SEASONS_CONFIG_VERSION) {
                 logger.warning("Your /plugins/TimeBar/advancedseasons.yml configuration is out of date! Some features may not work!");
             }
-        }
-    }
-
-    public void checkForUpdates() {
-        GitHubReleaseAPI api;
-        try {
-            api = new GitHubReleaseAPI("TimeBar", "eidacz");
-        } catch (IOException e) {
-            logger.warning("Unable to check updates!");
-            e.printStackTrace();
-            return;
-        }
-        GitHubRelease current = api.getReleaseByTag(this.getPluginMeta().getVersion());
-        GitHubRelease latest = api.getLatestVersion();
-        if (current == null) {
-            logger.warning("You are running a version that does not exist on GitHub. If you are in a dev environment, you can ignore this. Otherwise, this is a bug!");
-            return;
-        }
-        int buildsBehind = api.getBuildsBehind(current);
-        if (buildsBehind == 0) {
-            logger.info("You are running the latest version.");
-        } else {
-            logger.warning("A new version is available (" + latest.getTagVersion() + ")! You are running version " + current.getTagVersion() + ". You are " + buildsBehind + " version(s) behind.");
         }
     }
 
