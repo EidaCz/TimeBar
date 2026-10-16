@@ -17,9 +17,9 @@
 
 package lol.hyper.timebar.tracker;
 
+import cz.eida.minecraft.timebar.seasons.SeasonsTimeBarTask;
 import lol.hyper.timebar.TimeBar;
 import lol.hyper.timebar.timers.AdvancedSeasonsTask;
-import lol.hyper.timebar.timers.RealisticSeasonsTask;
 import lol.hyper.timebar.timers.RegularTimeBarTask;
 import lol.hyper.timebar.utils.NumberFormat;
 import net.kyori.adventure.bossbar.BossBar;
@@ -109,9 +109,9 @@ public class WorldTimeTracker {
         // start the tracker
         int updateFrequency = timeBar.config.getInt("bar-update-frequency");
         String allWorldNames = worldGroup.stream().map(World::getName).collect(Collectors.joining(", "));
-        if (timeBar.realisticSeasons) {
-            timeBarTask = new RealisticSeasonsTask(this).runTaskTimer(timeBar, 200, updateFrequency);
-            timeBar.logger.info("Starting time tracker for '" + mainWorld.getName() + "'" + " (RealisticSeasons support)");
+        if (timeBar.calendarSource != null) {
+            timeBarTask = new SeasonsTimeBarTask(this, timeBar.calendarSource).runTaskTimer(timeBar, 200, updateFrequency);
+            timeBar.logger.info("Starting time tracker for '" + mainWorld.getName() + "'" + " (" + timeBar.calendarSource.name() + " support)");
             timeBar.logger.info("Display worlds: [" + allWorldNames + "]");
         } else if (timeBar.advancedSeasons) {
             timeBarTask = new AdvancedSeasonsTask(this).runTaskTimer(timeBar, 200, updateFrequency);

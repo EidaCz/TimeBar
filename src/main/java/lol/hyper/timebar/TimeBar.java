@@ -17,6 +17,7 @@
 
 package lol.hyper.timebar;
 
+import cz.eida.minecraft.timebar.calendar.CalendarSource;
 import lol.hyper.timebar.commands.CommandTimeBar;
 import lol.hyper.timebar.events.PlayerJoinLeave;
 import lol.hyper.timebar.events.WorldChange;
@@ -55,7 +56,9 @@ public final class TimeBar extends JavaPlugin {
     public CommandTimeBar commandReload;
 
     public boolean papiSupport = false;
+    // RealisticSeasons or OpenSeasons: both use realisticseasons.yml
     public boolean realisticSeasons = false;
+    public CalendarSource calendarSource;
     public boolean advancedSeasons = false;
     public BossBar.Color bossBarColor;
 
@@ -71,9 +74,10 @@ public final class TimeBar extends JavaPlugin {
                 logger.warning("Unable to register placeholders!");
             }
         }
-        if (Bukkit.getPluginManager().getPlugin("RealisticSeasons") != null) {
+        calendarSource = CalendarSource.detect(Bukkit.getPluginManager()).orElse(null);
+        if (calendarSource != null) {
             realisticSeasons = true;
-            logger.info("RealisticSeasons is detected! Enabling support.");
+            logger.info(calendarSource.name() + " is detected! Enabling support.");
         }
         if (Bukkit.getPluginManager().getPlugin("AdvancedSeasons") != null) {
             advancedSeasons = true;

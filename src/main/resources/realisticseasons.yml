@@ -1,3 +1,6 @@
+# Settings for RealisticSeasons and OpenSeasons (OpenSeasons is used when both are present).
+# The calendar may be custom (any months, lengths and weekdays): names come from the plugin's calendar.
+
 # Use 24hr format for times.
 use-24h-format: true
 
@@ -6,18 +9,23 @@ use-24h-format: true
 # {TIME-WORD} - The time to display. Dawn, afternoon, etc.
 # {DAYCOUNT} - How many total days in game have passed.
 # {SEASON} - The current season.
-# {DATE} - The current date.
-# {DAY} - The day of week.
-# {MONTH} - The month.
+# {DATE} - The current date (see date-format).
+# {DAY} - The day of week (from the calendar, or days.<name> below).
+# {MONTH} - The month (month.<month>.name, or the calendar's name).
 # {DAYPERCENT} - Percentage of day completion.
-# {WORLDYEAR} - Current server year (simple integer).
-# {WORLDYEAR-ROMAN} - Current server year as roman numeral.
+# {WORLDYEAR} - Current year: RealisticSeasons world age in 365-day years, OpenSeasons calendar year.
+# {WORLDYEAR-ROMAN} - The same year as roman numeral (years below 1 stay in digits).
 timebar-title: "{SEASON} | {DAY} {DATE} {WORLDYEAR-ROMAN}, {TIME} | {TIME-WORD}"
 
-# Change the default formatting for dates.
-# See: https://www.digitalocean.com/community/tutorials/java-simpledateformat-java-date-format
-# Example: "dd/MM/yyyy"
+# Change the default formatting for dates. Letters as in Java date formats, values from the calendar:
+# d/dd day, M/MM month number, MMM short and MMMM full month name, y/yyyy year, yy two digits,
+# E short and EEEE full weekday, 'text' literal text. Example: "dd/MM/yyyy"
+# MMMM is month.<month>.date-name; without it a Gregorian month (named like January or in date-locale)
+# gets the date-locale form ("8. července"), any other month its name.
 date-format: "d. MMMM"
+
+# Language for Gregorian month names and 12h time, e.g. "cs-CZ". Empty: the server's (JVM) locale.
+#date-locale: "cs-CZ"
 
 # Want to change the wording of the time of days?
 times:
@@ -37,10 +45,25 @@ colors:
   FALL: "RED"
   WINTER: "BLUE"
 
+# Override the season names from the plugin (they may contain & color codes).
+#seasons:
+#  WINTER: "&bWinter"
+#  SPRING: "Spring"
+#  SUMMER: "Summer"
+#  FALL: "Fall"
+
+# Override the weekday names from the calendar, by the calendar's name.
+#days:
+#  monday: "Monday"
+
 # Set each "time of day" for each month.
 # When the time hits one of these, it will turn that "time of day."
 # Example: January at 7:45 AM. It will be dawn.
 # You can also set each title for each month, just add the title section like below and remove the #
+# A month's section is found by its name in the calendar (any case), then by its number ('7':), then,
+# in a 12-month calendar, by the English names below. Optional keys: name ({MONTH}), date-name
+# (MMMM in date-format), title. Times of a month without a section come from "default:" (add one),
+# then built-in times.
 month:
   january:
     name: "January"
@@ -51,6 +74,7 @@ month:
     sunset: "16:30"
     night: "18:30"
     midnight: "00:00"
+    #date-name: "January"
     #title: "This title will show in January only."
   february:
     name: "February"

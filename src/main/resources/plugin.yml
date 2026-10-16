@@ -5,7 +5,7 @@ api-version: '26.2'
 author: hyperdefined
 website: https://github.com/hyperdefined/TimeBar
 description: See the world's time as a bossbar.
-softdepend: [Multiverse-Core, RealisticSeasons, AdvancedSeasons, PlaceholderAPI]
+softdepend: [Multiverse-Core, OpenSeasons, RealisticSeasons, AdvancedSeasons, PlaceholderAPI]
 load: POSTWORLD
 commands:
   timebar:
