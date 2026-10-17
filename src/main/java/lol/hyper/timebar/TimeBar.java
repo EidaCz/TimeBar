@@ -138,7 +138,7 @@ public final class TimeBar extends JavaPlugin {
                 if (world != null) {
                     displayWorlds.add(world);
                 } else {
-                    logger.warning(worldName + " is not a valid world, skipping. If it is a valid world, wait for your server to load then try '/timebar reload'");
+                    logger.warning(name + " (display world of " + worldName + ") is not a valid world, skipping. If it is a valid world, wait for your server to load then try '/timebar reload'");
                 }
             }
 

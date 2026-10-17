@@ -23,7 +23,7 @@
 
     <groupId>lol.hyper</groupId>
     <artifactId>timebar</artifactId>
-    <version>1.4.10-eidacz</version>
+    <version>1.4.11-eidacz</version>
     <packaging>jar</packaging>
 
     <name>TimeBar</name>

@@ -48,6 +48,6 @@ final class OpenSeasonsSource implements CalendarSource {
 
     @Override
     public String setupHint() {
-        return "Enter the world and type '/rs set <season>' (OpenSeasons)";
+        return "Enter the world and type '/openseasons set <season>' (OpenSeasons)";
     }
 }
